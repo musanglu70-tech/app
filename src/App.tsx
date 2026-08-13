@@ -193,76 +193,97 @@ export default function App() {
       </main>
 
       {/* Mobile Responsive Dock Navigation System */}
-      <div 
-        className="md:hidden sticky bottom-0 z-40 w-full flex items-center justify-around px-2 py-2"
+      <div
+        className="md:hidden sticky bottom-0 z-40 w-full"
         style={{
-          backgroundColor: '#0B2A5B',
-          borderRadius: '18px 18px 0 0',
-          boxShadow: '0 -4px 18px rgba(11, 42, 91, 0.25)',
-          paddingBottom: 'calc(8px + env(safe-area-inset-bottom, 0px))',
+          backgroundColor: '#FFFFFF',
+          borderRadius: '22px 22px 0 0',
+          boxShadow: '0 -6px 22px rgba(11, 42, 91, 0.14)',
+          padding: '10px 10px calc(10px + env(safe-area-inset-bottom, 0px))',
         }}
       >
-        <button
-          id="dock-home"
-          type="button"
-          onClick={() => {
-            setActiveTab('home');
-            setIsContactModalOpen(false);
-          }}
-          className="flex-1 flex flex-col items-center justify-center gap-1 py-1.5 px-2 cursor-pointer"
-          style={{
-            backgroundColor: (activeTab === 'home' && !isContactModalOpen) ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
-            color: (activeTab === 'home' && !isContactModalOpen) ? '#FFD23F' : 'rgba(255, 255, 255, 0.85)',
-            fontWeight: (activeTab === 'home' && !isContactModalOpen) ? 700 : 500,
-            borderRadius: '999px',
-            transition: 'all 0.2s ease',
-          }}
-        >
-          <Home style={{ width: '22px', height: '22px' }} />
-          <span style={{ fontSize: '11px', lineHeight: '1.2' }}>홈</span>
-        </button>
+        <div className="flex items-stretch gap-2">
+          <button
+            id="dock-home"
+            type="button"
+            onClick={() => {
+              setActiveTab('home');
+              setIsContactModalOpen(false);
+            }}
+            className="flex-1 flex flex-col items-center justify-center gap-1 cursor-pointer"
+            style={{
+              background: 'linear-gradient(160deg, #1F4E96 0%, #0E2C5E 100%)',
+              color: '#FFFFFF',
+              borderRadius: '16px',
+              padding: '12px 4px',
+              border: (activeTab === 'home' && !isContactModalOpen)
+                ? '2px solid #5BA4FF'
+                : '2px solid transparent',
+              boxShadow: (activeTab === 'home' && !isContactModalOpen)
+                ? '0 6px 16px rgba(31, 78, 150, 0.4)'
+                : '0 2px 6px rgba(11, 42, 91, 0.18)',
+              transform: (activeTab === 'home' && !isContactModalOpen) ? 'translateY(-2px)' : 'none',
+              transition: 'all 0.2s ease',
+            }}
+          >
+            <Home style={{ width: '24px', height: '24px' }} />
+            <span style={{ fontSize: '12px', lineHeight: '1.2', fontWeight: 700 }}>홈</span>
+          </button>
 
-        <button
-          id="dock-inquiry"
-          type="button"
-          onClick={() => setIsContactModalOpen(true)}
-          className="flex-1 flex flex-col items-center justify-center gap-1 py-1.5 px-2 cursor-pointer relative"
-          style={{
-            backgroundColor: isContactModalOpen ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
-            color: isContactModalOpen ? '#FFD23F' : 'rgba(255, 255, 255, 0.85)',
-            fontWeight: isContactModalOpen ? 700 : 500,
-            borderRadius: '999px',
-            transition: 'all 0.2s ease',
-          }}
-        >
-          <UserCheck style={{ width: '22px', height: '22px' }} />
-          <span style={{ fontSize: '11px', lineHeight: '1.2' }}>파트너쉽</span>
-          {inquiryCount > 0 && (
-            <span className="absolute top-1 right-2 bg-red-500 text-white font-black font-mono text-[9px] w-4 h-4 rounded-full flex items-center justify-center shadow">
-              {inquiryCount}
-            </span>
-          )}
-        </button>
+          <button
+            id="dock-inquiry"
+            type="button"
+            onClick={() => setIsContactModalOpen(true)}
+            className="flex-1 flex flex-col items-center justify-center gap-1 cursor-pointer relative"
+            style={{
+              background: 'linear-gradient(160deg, #3B82E8 0%, #1E5AAE 100%)',
+              color: '#FFFFFF',
+              borderRadius: '16px',
+              padding: '12px 4px',
+              border: isContactModalOpen ? '2px solid #9CC7FF' : '2px solid transparent',
+              boxShadow: isContactModalOpen
+                ? '0 6px 16px rgba(59, 130, 232, 0.4)'
+                : '0 2px 6px rgba(11, 42, 91, 0.18)',
+              transform: isContactModalOpen ? 'translateY(-2px)' : 'none',
+              transition: 'all 0.2s ease',
+            }}
+          >
+            <UserCheck style={{ width: '24px', height: '24px' }} />
+            <span style={{ fontSize: '12px', lineHeight: '1.2', fontWeight: 700 }}>파트너쉽</span>
+            {inquiryCount > 0 && (
+              <span className="absolute top-1 right-2 bg-red-500 text-white font-black font-mono text-[9px] w-4 h-4 rounded-full flex items-center justify-center shadow">
+                {inquiryCount}
+              </span>
+            )}
+          </button>
 
-        <button
-          id="dock-faqs"
-          type="button"
-          onClick={() => {
-            setActiveTab('faqs');
-            setIsContactModalOpen(false);
-          }}
-          className="flex-1 flex flex-col items-center justify-center gap-1 py-1.5 px-2 cursor-pointer"
-          style={{
-            backgroundColor: (activeTab === 'faqs' && !isContactModalOpen) ? 'rgba(255, 255, 255, 0.15)' : 'transparent',
-            color: (activeTab === 'faqs' && !isContactModalOpen) ? '#FFD23F' : 'rgba(255, 255, 255, 0.85)',
-            fontWeight: (activeTab === 'faqs' && !isContactModalOpen) ? 700 : 500,
-            borderRadius: '999px',
-            transition: 'all 0.2s ease',
-          }}
-        >
-          <HelpCircle style={{ width: '22px', height: '22px' }} />
-          <span style={{ fontSize: '11px', lineHeight: '1.2' }}>도움말</span>
-        </button>
+          <button
+            id="dock-faqs"
+            type="button"
+            onClick={() => {
+              setActiveTab('faqs');
+              setIsContactModalOpen(false);
+            }}
+            className="flex-1 flex flex-col items-center justify-center gap-1 cursor-pointer"
+            style={{
+              background: 'linear-gradient(160deg, #2FB3AE 0%, #16867F 100%)',
+              color: '#FFFFFF',
+              borderRadius: '16px',
+              padding: '12px 4px',
+              border: (activeTab === 'faqs' && !isContactModalOpen)
+                ? '2px solid #8FE3DE'
+                : '2px solid transparent',
+              boxShadow: (activeTab === 'faqs' && !isContactModalOpen)
+                ? '0 6px 16px rgba(47, 179, 174, 0.4)'
+                : '0 2px 6px rgba(11, 42, 91, 0.18)',
+              transform: (activeTab === 'faqs' && !isContactModalOpen) ? 'translateY(-2px)' : 'none',
+              transition: 'all 0.2s ease',
+            }}
+          >
+            <HelpCircle style={{ width: '24px', height: '24px' }} />
+            <span style={{ fontSize: '12px', lineHeight: '1.2', fontWeight: 700 }}>도움말</span>
+          </button>
+        </div>
       </div>
 
       {/* Professional Footer Structure */}

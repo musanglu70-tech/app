@@ -6,6 +6,7 @@
 import { USP_LIST } from '../data';
 import WooriLogo from './WooriLogo';
 import { BadgePercent, TrendingUp, Clock, Users, ArrowRight, CheckCircle2, Award, ChevronRight, Zap } from 'lucide-react';
+import banner10Years from '../assets/banner-10years.png';
 
 interface MainLandingProps {
   onNavigateToCalculator: () => void;
@@ -66,28 +67,14 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
               <span className="text-yellow-300 font-black">아직도 비교 안하고</span> 계신가요?
             </h1>
 
-            {/* 10주년 신뢰 카드 */}
-            <div className="bg-white rounded-2xl px-5 py-4 shadow-lg flex items-center gap-4">
-              <div className="shrink-0 relative w-[74px] h-[74px] flex items-center justify-center">
-                <span className="absolute left-0 top-1/2 -translate-y-1/2 text-[26px] leading-none select-none" aria-hidden="true">🌿</span>
-                <span className="absolute right-0 top-1/2 -translate-y-1/2 text-[26px] leading-none select-none scale-x-[-1]" aria-hidden="true">🌿</span>
-                <div className="flex flex-col items-center leading-none">
-                  <span className="text-[30px] font-black text-amber-600 tracking-tight">10</span>
-                  <span className="text-[9px] font-black text-amber-700 tracking-[0.18em] mt-0.5">YEARS</span>
-                  <span className="text-[8px] text-amber-500 tracking-[0.2em] mt-0.5">★★★★★</span>
-                </div>
-              </div>
-              <div className="min-w-0">
-                <p className="text-slate-900 font-extrabold text-[15px] md:text-base leading-snug">
-                  CSO 사업 10여년을<br />
-                  <span className="text-brand-700">대표님들과 함께했습니다.</span>
-                </p>
-                <p className="text-slate-500 text-[11px] md:text-xs leading-relaxed mt-1.5">
-                  지난 10여년간 쌓아온 신뢰와 노하우로<br className="hidden sm:block" />
-                  앞으로도 든든한 파트너가 되겠습니다.
-                </p>
-              </div>
-            </div>
+            {/* 10주년 신뢰 배너 */}
+            <img
+              src={banner10Years}
+              alt="CSO 사업 10여년을 대표님들과 함께했습니다"
+              className="w-full h-auto rounded-2xl shadow-lg block"
+              style={{ aspectRatio: '1983 / 793', objectFit: 'contain' }}
+              draggable={false}
+            />
 
           </div>
 

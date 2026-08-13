@@ -1,0 +1,16 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+    "package_name": "com.woorieditech.cso",
+      "sha256_cert_fingerprints": [
+        "B9:6B:06:B3:4C:99:DA:91:9A:12:22:EA:97:E8:86:97:76:00:37:1A:A9:A7:20:A0:B7:A5:DA:0F:AD:2D:AC:CC",
+        "36:8A:3E:F2:F6:0C:FD:84:88:A1:2C:A9:0A:7C:AF:4E:9D:F5:29:0C:9B:0B:D3:4C:8D:FF:7C:F0:1C:0B:49:4B"
+      ]
+    }
+  }
+]

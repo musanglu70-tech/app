@@ -23,7 +23,13 @@ export default function App() {
     return <PrivacyPolicy />;
   }
 
-  const [activeTab, setActiveTab] = useState<'home' | 'faqs'>('home');
+  // 앱에서 ?tab=faqs 로 들어오면 바로 도움말(FAQ) 화면을 보여준다
+  const initialTab: 'home' | 'faqs' =
+    typeof window !== 'undefined' &&
+    new URLSearchParams(window.location.search).get('tab') === 'faqs'
+      ? 'faqs'
+      : 'home';
+  const [activeTab, setActiveTab] = useState<'home' | 'faqs'>(initialTab);
   const [isCommissionModalOpen, setIsCommissionModalOpen] = useState<boolean>(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState<boolean>(false);
   
@@ -257,32 +263,6 @@ export default function App() {
             )}
           </button>
 
-          <button
-            id="dock-faqs"
-            type="button"
-            onClick={() => {
-              setActiveTab('faqs');
-              setIsContactModalOpen(false);
-            }}
-            className="flex-1 flex flex-col items-center justify-center gap-1 cursor-pointer"
-            style={{
-              background: 'linear-gradient(160deg, #2FB3AE 0%, #16867F 100%)',
-              color: '#FFFFFF',
-              borderRadius: '16px',
-              padding: '12px 4px',
-              border: (activeTab === 'faqs' && !isContactModalOpen)
-                ? '2px solid #8FE3DE'
-                : '2px solid transparent',
-              boxShadow: (activeTab === 'faqs' && !isContactModalOpen)
-                ? '0 6px 16px rgba(47, 179, 174, 0.4)'
-                : '0 2px 6px rgba(11, 42, 91, 0.18)',
-              transform: (activeTab === 'faqs' && !isContactModalOpen) ? 'translateY(-2px)' : 'none',
-              transition: 'all 0.2s ease',
-            }}
-          >
-            <HelpCircle style={{ width: '24px', height: '24px' }} />
-            <span style={{ fontSize: '12px', lineHeight: '1.2', fontWeight: 700 }}>도움말</span>
-          </button>
         </div>
       </div>
 

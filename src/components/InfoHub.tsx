@@ -101,7 +101,7 @@ export default function InfoHub() {
             { id: 'commission', label: '수수료 문의' },
             { id: 'settlement', label: '정산 일정' },
             { id: 'policy', label: '스팟 인센티브' },
-            { id: 'info', label: '등록 전차' },
+            { id: 'info', label: '등록 절차' },
           ].map((cat) => (
             <button
               key={cat.id}

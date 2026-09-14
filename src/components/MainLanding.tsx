@@ -98,32 +98,15 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
               id="hero-go-calc"
               type="button"
               onClick={onNavigateToCalculator}
-              className="w-full block -mx-1.5 md:mx-0 transition-all duration-200 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
-              style={{ width: 'calc(100% + 12px)' }}
+              className="w-full block transition-all duration-200 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
               aria-label="CSO (주)우리메디텍 수수료 확인하기"
             >
-              {/* 원본 이미지 가장자리에 체크무늬가 박혀 있어 잘라내고 보여준다 */}
-              <span
-                className="block bg-white shadow-lg"
-                style={{ borderRadius: '26px', padding: '14px 6px' }}
-              >
-              <span className="block overflow-hidden" style={{ borderRadius: '14px' }}>
-                <img
-                  src={ctaFeeCheck}
-                  alt="CSO (주)우리메디텍 수수료 확인하기 — 사업자등록증 + CSO 신고증 두 가지만 제출하시면 전 제약사 수수료율표 바로 확인!"
-                  className="block"
-                  style={{
-                    width: '113%',
-                    maxWidth: 'none',
-                    height: 'auto',
-                    marginLeft: '-7%',
-                    marginTop: '-5.6%',
-                    marginBottom: '-5.6%',
-                  }}
-                  draggable={false}
-                />
-              </span>
-              </span>
+              <img
+                src={ctaFeeCheck}
+                alt="CSO (주)우리메디텍 수수료 확인하기 — 사업자등록증 + CSO 신고증 두 가지만 제출하시면 전 제약사 수수료율표 바로 확인!"
+                className="w-full h-auto rounded-2xl shadow-lg block"
+                draggable={false}
+              />
             </button>
 
             <button

@@ -7,6 +7,28 @@ import { USP_LIST } from '../data';
 import { BadgePercent, TrendingUp, Clock, Users, ArrowRight, CheckCircle2, Award, ChevronRight, Zap } from 'lucide-react';
 import banner10Years from '../assets/banner-10years.png';
 import ctaFeeCheck from '../assets/cta-fee-check.png';
+import promoPolicy from '../assets/promo-policy.png';
+import promoSoldout from '../assets/promo-soldout.png';
+import promoInstock from '../assets/promo-instock.png';
+
+/** 제약사 안내 3종 — 순서: 특별정책 / 품절품목 / 입고품목 */
+const PHARMA_NOTICES = [
+  {
+    img: promoPolicy,
+    label: '제약사 특별정책 안내',
+    href: 'https://blog.naver.com/woorimedi2018/224170271072',
+  },
+  {
+    img: promoSoldout,
+    label: '제약사 품절품목 안내',
+    href: 'https://blog.naver.com/woorimedi2018/224144923018',
+  },
+  {
+    img: promoInstock,
+    label: '제약사 입고품목 안내',
+    href: 'https://blog.naver.com/woorimedi2018/224144923670',
+  },
+];
 
 interface MainLandingProps {
   onNavigateToCalculator: () => void;
@@ -198,6 +220,26 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
             </div>
           ))}
         </div>
+      </div>
+
+      {/* 제약사 안내 3종 (특별정책 / 품절품목 / 입고품목) — 블로그 바로가기 */}
+      <div className="rounded-2xl overflow-hidden shadow-md flex">
+        {PHARMA_NOTICES.map((notice) => (
+          <a
+            key={notice.href}
+            href={notice.href}
+            rel="noopener"
+            className="block flex-1 min-w-0 transition-opacity duration-200 hover:opacity-90 active:opacity-80"
+            title={notice.label}
+          >
+            <img
+              src={notice.img}
+              alt={notice.label}
+              className="block w-full h-auto"
+              draggable={false}
+            />
+          </a>
+        ))}
       </div>
 
       {/* Big Secondary Interactive Call-out mimicking Slide 2 Bottom Banner link */}

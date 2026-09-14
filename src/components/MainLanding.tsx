@@ -4,8 +4,9 @@
  */
 
 import { USP_LIST } from '../data';
-import { BadgePercent, TrendingUp, Clock, Users, ArrowRight, CheckCircle2, Award, ChevronRight, Zap, FileCheck2 } from 'lucide-react';
+import { BadgePercent, TrendingUp, Clock, Users, ArrowRight, CheckCircle2, Award, ChevronRight, Zap } from 'lucide-react';
 import banner10Years from '../assets/banner-10years.png';
+import ctaFeeCheck from '../assets/cta-fee-check.png';
 
 interface MainLandingProps {
   onNavigateToCalculator: () => void;
@@ -34,7 +35,7 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
     <div id="landing-hero-view" className="space-y-12">
       
       {/* Hero Presentation Banner (Inspired by Slide 1 & Slide 2 main card) */}
-      <div className="gradient-bg rounded-3xl p-8 md:p-12 text-white relative overflow-hidden shadow-xl">
+      <div className="gradient-bg rounded-3xl p-5 md:p-12 text-white relative overflow-hidden shadow-xl">
         {/* Abstract decorative graphic mimicking the geometric lines of Slide 1 */}
         <div className="absolute top-0 right-0 w-80 h-80 border-t border-r border-white/5 rounded-tr-3xl -mr-16 -mt-16 pointer-events-none"></div>
         <div className="absolute top-4 right-4 w-72 h-72 border-t border-r border-white/10 rounded-tr-3xl -mr-12 -mt-12 pointer-events-none"></div>
@@ -70,33 +71,21 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
           </div>
 
           {/* Interactive CTA Trigger */}
-          <div className="pt-4 flex flex-col gap-3.5">
+          <div className="pt-1 flex flex-col gap-3">
             <button
               id="hero-go-calc"
               type="button"
               onClick={onNavigateToCalculator}
-              className="w-full bg-white hover:bg-slate-50 text-[#0f172a] rounded-3xl px-6 py-5 transition-all duration-200 shadow-lg cursor-pointer hover:scale-[1.01] active:scale-[0.99] text-left"
+              className="w-full block transition-all duration-200 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
+              aria-label="CSO (주)우리메디텍 수수료 확인하기"
             >
-              <span className="flex items-center justify-between gap-3">
-                <span className="font-black text-[15px] md:text-lg tracking-tight" style={{ wordBreak: 'keep-all' }}>
-                  CSO (주)우리메디텍 수수료 확인하기
-                </span>
-                <ArrowRight className="w-5 h-5 text-[#0f172a] shrink-0 stroke-[2.5]" />
-              </span>
-
-              <span className="mt-4 pt-4 border-t border-slate-100 flex items-center gap-3.5">
-                <span className="bg-blue-50 rounded-full p-2.5 shrink-0 flex items-center justify-center">
-                  <FileCheck2 className="w-6 h-6 text-[#1d4ed8] stroke-[2]" />
-                </span>
-                <span className="block leading-snug" style={{ wordBreak: 'keep-all' }}>
-                  <span className="block text-[13px] md:text-sm font-bold text-slate-700">
-                    사업자등록증 + CSO 신고증 두 가지만 제출하시면
-                  </span>
-                  <span className="block text-[15px] md:text-lg font-black text-[#1d4ed8] mt-0.5">
-                    전 제약사 수수료율표 바로 확인!
-                  </span>
-                </span>
-              </span>
+              <img
+                src={ctaFeeCheck}
+                alt="CSO (주)우리메디텍 수수료 확인하기 — 사업자등록증 + CSO 신고증 두 가지만 제출하시면 전 제약사 수수료율표 바로 확인!"
+                className="w-full h-auto block drop-shadow-lg"
+                style={{ aspectRatio: '2159 / 728', objectFit: 'contain' }}
+                draggable={false}
+              />
             </button>
 
             <button

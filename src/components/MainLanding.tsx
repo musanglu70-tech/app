@@ -4,8 +4,7 @@
  */
 
 import { USP_LIST } from '../data';
-import WooriLogo from './WooriLogo';
-import { BadgePercent, TrendingUp, Clock, Users, ArrowRight, CheckCircle2, Award, ChevronRight, Zap } from 'lucide-react';
+import { BadgePercent, TrendingUp, Clock, Users, ArrowRight, CheckCircle2, Award, ChevronRight, Zap, FileCheck2 } from 'lucide-react';
 import banner10Years from '../assets/banner-10years.png';
 
 interface MainLandingProps {
@@ -54,14 +53,6 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
           </button>
 
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              {/* Reflected Logo from PowerPoint Slide 1 */}
-              <div className="bg-white p-1 rounded-2xl shadow-sm shrink-0">
-                <WooriLogo size="sm" />
-              </div>
-              <span className="text-xl md:text-2xl font-extrabold tracking-tight text-brand-100">CSO (주)우리메디텍</span>
-            </div>
-            
             <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-[1.25] font-display">
               수수료율,<br />
               <span className="text-yellow-300 font-black">아직도 비교 안하고</span> 계신가요?
@@ -79,22 +70,40 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
           </div>
 
           {/* Interactive CTA Trigger */}
-          <div className="pt-4 flex flex-col sm:flex-row gap-3.5">
+          <div className="pt-4 flex flex-col gap-3.5">
             <button
               id="hero-go-calc"
               type="button"
               onClick={onNavigateToCalculator}
-              className="bg-white hover:bg-slate-100 text-[#0f172a] font-black text-base py-4.5 px-9 rounded-full transition-all duration-200 shadow-lg flex items-center justify-center gap-2.5 cursor-pointer hover:scale-[1.03] active:scale-[0.97]"
+              className="w-full bg-white hover:bg-slate-50 text-[#0f172a] rounded-3xl px-6 py-5 transition-all duration-200 shadow-lg cursor-pointer hover:scale-[1.01] active:scale-[0.99] text-left"
             >
-              <span>CSO (주)우리메디텍 수수료 확인하기</span>
-              <ArrowRight className="w-5 h-5 text-[#0f172a] shrink-0 stroke-[2.5]" />
+              <span className="flex items-center justify-between gap-3">
+                <span className="font-black text-base md:text-lg tracking-tight">
+                  CSO (주)우리메디텍 수수료 확인하기
+                </span>
+                <ArrowRight className="w-5 h-5 text-[#0f172a] shrink-0 stroke-[2.5]" />
+              </span>
+
+              <span className="mt-4 pt-4 border-t border-slate-100 flex items-center gap-3.5">
+                <span className="bg-blue-50 rounded-full p-2.5 shrink-0 flex items-center justify-center">
+                  <FileCheck2 className="w-6 h-6 text-[#1d4ed8] stroke-[2]" />
+                </span>
+                <span className="block leading-snug">
+                  <span className="block text-[13px] md:text-sm font-bold text-slate-700">
+                    사업자등록증 + CSO 신고증 두 가지만 제출하시면
+                  </span>
+                  <span className="block text-[15px] md:text-lg font-black text-[#1d4ed8] mt-0.5">
+                    전 제약사 수수료율표 바로 확인!
+                  </span>
+                </span>
+              </span>
             </button>
-            
+
             <button
               id="hero-go-inquiry"
               type="button"
               onClick={onNavigateToInquiry}
-              className="bg-white/10 hover:bg-white/15 border border-white/20 text-white font-extrabold text-base py-4.5 px-8 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full bg-white/10 hover:bg-white/15 border border-white/20 text-white font-extrabold text-base py-4.5 px-8 rounded-xl transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
             >
               <span>전담 안내 신청하기</span>
             </button>

@@ -82,9 +82,10 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
             >
               {/* 원본 이미지 가장자리에 체크무늬가 박혀 있어 잘라내고 보여준다 */}
               <span
-                className="block overflow-hidden bg-white shadow-lg"
+                className="block bg-white shadow-lg"
                 style={{ borderRadius: '26px', padding: '14px 6px' }}
               >
+              <span className="block overflow-hidden" style={{ borderRadius: '14px' }}>
                 <img
                   src={ctaFeeCheck}
                   alt="CSO (주)우리메디텍 수수료 확인하기 — 사업자등록증 + CSO 신고증 두 가지만 제출하시면 전 제약사 수수료율표 바로 확인!"
@@ -99,6 +100,7 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
                   }}
                   draggable={false}
                 />
+              </span>
               </span>
             </button>
 

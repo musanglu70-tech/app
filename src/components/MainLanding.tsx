@@ -78,7 +78,7 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
               className="w-full bg-white hover:bg-slate-50 text-[#0f172a] rounded-3xl px-6 py-5 transition-all duration-200 shadow-lg cursor-pointer hover:scale-[1.01] active:scale-[0.99] text-left"
             >
               <span className="flex items-center justify-between gap-3">
-                <span className="font-black text-base md:text-lg tracking-tight">
+                <span className="font-black text-[15px] md:text-lg tracking-tight" style={{ wordBreak: 'keep-all' }}>
                   CSO (주)우리메디텍 수수료 확인하기
                 </span>
                 <ArrowRight className="w-5 h-5 text-[#0f172a] shrink-0 stroke-[2.5]" />
@@ -88,7 +88,7 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
                 <span className="bg-blue-50 rounded-full p-2.5 shrink-0 flex items-center justify-center">
                   <FileCheck2 className="w-6 h-6 text-[#1d4ed8] stroke-[2]" />
                 </span>
-                <span className="block leading-snug">
+                <span className="block leading-snug" style={{ wordBreak: 'keep-all' }}>
                   <span className="block text-[13px] md:text-sm font-bold text-slate-700">
                     사업자등록증 + CSO 신고증 두 가지만 제출하시면
                   </span>

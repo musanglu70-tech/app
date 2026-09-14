@@ -76,13 +76,14 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
               id="hero-go-calc"
               type="button"
               onClick={onNavigateToCalculator}
-              className="w-full block transition-all duration-200 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
+              className="w-full block -mx-1.5 md:mx-0 transition-all duration-200 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
+              style={{ width: 'calc(100% + 12px)' }}
               aria-label="CSO (주)우리메디텍 수수료 확인하기"
             >
               {/* 원본 이미지 가장자리에 체크무늬가 박혀 있어 잘라내고 보여준다 */}
               <span
                 className="block overflow-hidden bg-white shadow-lg"
-                style={{ borderRadius: '26px' }}
+                style={{ borderRadius: '26px', padding: '14px 6px' }}
               >
                 <img
                   src={ctaFeeCheck}

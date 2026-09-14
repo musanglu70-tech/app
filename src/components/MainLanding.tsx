@@ -93,7 +93,7 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
           </div>
 
           {/* Interactive CTA Trigger */}
-          <div className="pt-1 flex flex-col gap-3">
+          <div className="-mt-3 flex flex-col gap-3">
             <button
               id="hero-go-calc"
               type="button"

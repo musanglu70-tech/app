@@ -95,8 +95,8 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
                     maxWidth: 'none',
                     height: 'auto',
                     marginLeft: '-7%',
-                    marginTop: '-4%',
-                    marginBottom: '-4.2%',
+                    marginTop: '-5.6%',
+                    marginBottom: '-5.6%',
                   }}
                   draggable={false}
                 />

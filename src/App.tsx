@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import MainLanding from './components/MainLanding';
 import InteractiveCalculator from './components/InteractiveCalculator';
 import InquiryForm from './components/InquiryForm';
@@ -60,26 +60,32 @@ export default function App() {
 
   // 팝업(상담신청·수수료 계산기)이 열려 있을 때 휴대폰 뒤로가기를 누르면
   // 앱이 꺼지지 않고 팝업만 닫히도록 한다.
+  // 팝업끼리 전환될 때는 기록을 건드리지 않는다.
+  const anyModalOpen = isContactModalOpen || isCommissionModalOpen;
+  const modalHistoryPushed = useRef(false);
+
   useEffect(() => {
-    const anyModalOpen = isContactModalOpen || isCommissionModalOpen;
-    if (!anyModalOpen) return;
-
-    window.history.pushState({ wooriModal: true }, '');
-
     const handlePopState = () => {
+      modalHistoryPushed.current = false;
       setIsContactModalOpen(false);
       setIsCommissionModalOpen(false);
     };
     window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
-    return () => {
-      window.removeEventListener('popstate', handlePopState);
+  useEffect(() => {
+    if (anyModalOpen && !modalHistoryPushed.current) {
+      modalHistoryPushed.current = true;
+      window.history.pushState({ wooriModal: true }, '');
+    } else if (!anyModalOpen && modalHistoryPushed.current) {
+      modalHistoryPushed.current = false;
       // 닫기 버튼으로 닫은 경우: 우리가 넣어둔 기록을 되돌린다
       if (window.history.state && window.history.state.wooriModal) {
         window.history.back();
       }
-    };
-  }, [isContactModalOpen, isCommissionModalOpen]);
+    }
+  }, [anyModalOpen]);
 
   const handleStartInquiryFromCalculator = (sales: number, currentComm: number, targetComm: number) => {
     setSalesVal(sales);

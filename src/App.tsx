@@ -58,6 +58,29 @@ export default function App() {
     updateCount();
   }, [activeTab]);
 
+  // 팝업(상담신청·수수료 계산기)이 열려 있을 때 휴대폰 뒤로가기를 누르면
+  // 앱이 꺼지지 않고 팝업만 닫히도록 한다.
+  useEffect(() => {
+    const anyModalOpen = isContactModalOpen || isCommissionModalOpen;
+    if (!anyModalOpen) return;
+
+    window.history.pushState({ wooriModal: true }, '');
+
+    const handlePopState = () => {
+      setIsContactModalOpen(false);
+      setIsCommissionModalOpen(false);
+    };
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      // 닫기 버튼으로 닫은 경우: 우리가 넣어둔 기록을 되돌린다
+      if (window.history.state && window.history.state.wooriModal) {
+        window.history.back();
+      }
+    };
+  }, [isContactModalOpen, isCommissionModalOpen]);
+
   const handleStartInquiryFromCalculator = (sales: number, currentComm: number, targetComm: number) => {
     setSalesVal(sales);
     setCurrentCommVal(currentComm);

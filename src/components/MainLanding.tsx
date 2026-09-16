@@ -7,31 +7,20 @@ import { USP_LIST } from '../data';
 import { BadgePercent, TrendingUp, Clock, Users, ArrowRight, CheckCircle2, Award, ChevronRight, Zap } from 'lucide-react';
 import banner10Years from '../assets/banner-10years.png';
 import ctaFeeCheck from '../assets/cta-fee-check.png';
-import promoPolicy from '../assets/promo-policy.png';
-import promoSoldout from '../assets/promo-soldout.png';
-import promoInstock from '../assets/promo-instock.png';
+import promoNotice3 from '../assets/promo-notice-3.png';
 
 /** 제약사 안내 3종 — 순서: 특별정책 / 품절품목 / 입고품목 */
 const PHARMA_NOTICES = [
   {
-    img: promoPolicy,
     label: '제약사 특별정책 안내',
-    color: '#2F80ED',
-    bg: '#F3F7FA',
     href: 'https://blog.naver.com/woorimedi2018/224170271072',
   },
   {
-    img: promoSoldout,
     label: '제약사 품절품목 안내',
-    color: '#E5484D',
-    bg: '#FAF4F4',
     href: 'https://blog.naver.com/woorimedi2018/224144923018',
   },
   {
-    img: promoInstock,
     label: '제약사 입고품목 안내',
-    color: '#34A853',
-    bg: '#F3FAF5',
     href: 'https://blog.naver.com/woorimedi2018/224144923670',
   },
 ];
@@ -211,34 +200,26 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
         </div>
       </div>
 
-      {/* 제약사 안내 3종 (특별정책 / 품절품목 / 입고품목) — 블로그 바로가기 */}
-      <div className="rounded-2xl overflow-hidden shadow-md flex">
-        {PHARMA_NOTICES.map((notice) => (
-          <a
-            key={notice.href}
-            href={notice.href}
-            rel="noopener"
-            className="block flex-1 min-w-0 transition-opacity duration-200 hover:opacity-90 active:opacity-80"
-            style={{ backgroundColor: notice.bg }}
-            title={notice.label}
-          >
-            <img
-              src={notice.img}
-              alt={notice.label}
-              className="block w-full h-auto"
-              draggable={false}
+      {/* 제약사 안내 3종 (특별정책 / 품절품목 / 입고품목) — 한 장의 이미지를 3등분해 각각 블로그로 연결 */}
+      <div className="relative">
+        <img
+          src={promoNotice3}
+          alt="제약사 특별정책 안내 · 제약사 품절품목 안내 · 제약사 입고품목 안내"
+          className="block w-full h-auto"
+          draggable={false}
+        />
+        <div className="absolute inset-0 flex">
+          {PHARMA_NOTICES.map((notice) => (
+            <a
+              key={notice.href}
+              href={notice.href}
+              rel="noopener"
+              className="block flex-1 transition-opacity duration-200 hover:opacity-70 active:opacity-60"
+              title={notice.label}
+              aria-label={notice.label}
             />
-            <span className="block px-2 pb-3 -mt-1">
-              <span
-                className="flex items-center justify-center gap-1 w-full rounded-full py-2 font-black text-white shadow-sm"
-                style={{ backgroundColor: notice.color, fontSize: 'clamp(11px, 3vw, 15px)' }}
-              >
-                바로보기
-                <ChevronRight className="w-3.5 h-3.5 shrink-0 stroke-[3]" />
-              </span>
-            </span>
-          </a>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* Big Secondary Interactive Call-out mimicking Slide 2 Bottom Banner link */}

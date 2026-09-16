@@ -17,18 +17,21 @@ const PHARMA_NOTICES = [
     img: promoPolicy,
     label: '제약사 특별정책 안내',
     color: '#2F80ED',
+    bg: '#F3F7FA',
     href: 'https://blog.naver.com/woorimedi2018/224170271072',
   },
   {
     img: promoSoldout,
     label: '제약사 품절품목 안내',
     color: '#E5484D',
+    bg: '#FAF4F4',
     href: 'https://blog.naver.com/woorimedi2018/224144923018',
   },
   {
     img: promoInstock,
     label: '제약사 입고품목 안내',
-    color: '#2E9E6B',
+    color: '#34A853',
+    bg: '#F3FAF5',
     href: 'https://blog.naver.com/woorimedi2018/224144923670',
   },
 ];
@@ -215,7 +218,8 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
             key={notice.href}
             href={notice.href}
             rel="noopener"
-            className="block flex-1 min-w-0 bg-white transition-opacity duration-200 hover:opacity-90 active:opacity-80"
+            className="block flex-1 min-w-0 transition-opacity duration-200 hover:opacity-90 active:opacity-80"
+            style={{ backgroundColor: notice.bg }}
             title={notice.label}
           >
             <img
@@ -224,12 +228,14 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
               className="block w-full h-auto"
               draggable={false}
             />
-            <span
-              className="flex items-center justify-center gap-0.5 py-2.5 font-black text-white"
-              style={{ backgroundColor: notice.color, fontSize: 'clamp(11px, 3vw, 14px)' }}
-            >
-              바로보기
-              <ChevronRight className="w-3.5 h-3.5 shrink-0 stroke-[3]" />
+            <span className="block px-2 pb-3 -mt-1">
+              <span
+                className="flex items-center justify-center gap-1 w-full rounded-full py-2 font-black text-white shadow-sm"
+                style={{ backgroundColor: notice.color, fontSize: 'clamp(11px, 3vw, 15px)' }}
+              >
+                바로보기
+                <ChevronRight className="w-3.5 h-3.5 shrink-0 stroke-[3]" />
+              </span>
             </span>
           </a>
         ))}

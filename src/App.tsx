@@ -23,6 +23,7 @@ export default function App() {
     return <PrivacyPolicy />;
   }
 
+  // 배포 갱신용 표시: 2026-10-29
   // 앱에서 ?tab=faqs 로 들어오면 바로 도움말(FAQ) 화면을 보여준다
   const initialTab: 'home' | 'faqs' =
     typeof window !== 'undefined' &&

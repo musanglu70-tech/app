@@ -202,7 +202,7 @@ export default function App() {
             </span>
             <h2 className="text-2xl font-black text-slate-800 tracking-tight flex items-center gap-2">
               <span className="w-1.5 h-6 bg-brand-600 rounded-full self-center"></span>
-              {activeTab === 'home' && '선택은 자유! 체크는 필수!'}
+              {activeTab === 'home' && '선택은 자유 ! 체크는 필수 !'}
               {activeTab === 'faqs' && '신속하고 정직한 정보 아카이브'}
             </h2>
           </div>
@@ -273,7 +273,7 @@ export default function App() {
           </div>
 
           <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] text-slate-500">
-            <p>© 2026 Wooree Meditech CSO Inc. All rights reserved. [선택은 자유! 체크는 필수!]</p>
+            <p>© 2026 Wooree Meditech CSO Inc. All rights reserved. [선택은 자유 ! 체크는 필수 !]</p>
             <div className="flex gap-4">
               <a href="/privacy" className="hover:text-slate-400">개인정보처리방침</a>
               <a href="#terms" className="hover:text-slate-400">이용약관</a>

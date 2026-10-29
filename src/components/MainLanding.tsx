@@ -67,7 +67,7 @@ export default function MainLanding({ onNavigateToCalculator, onNavigateToInquir
             title="파트너 상담 신청 바로가기"
           >
             <Zap className="w-3.5 h-3.5 fill-yellow-300 stroke-yellow-300 text-yellow-300 shrink-0" />
-            선택은 자유! 체크는 필수!
+            선택은 자유 ! 체크는 필수 !
           </button>
 
           <div className="space-y-4">
